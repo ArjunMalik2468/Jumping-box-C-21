@@ -17,7 +17,7 @@ function setup(){
 
     //create 4 different surfaces
     movingball = createSprite(random(20,750));
-    movingball.shapeColor = "green";
+    movingball.shapeColor = "white";
     movingball.velocityX = 6;
     movingball.velocityY = 6;
 
@@ -37,7 +37,6 @@ function setup(){
     bottomBoundry= createSprite(400,599,800,5);
     rightBoundry= createSprite(1,300,1,800);
     leftBoundry= createSprite(799,300,1,800);
-   
     
 }
 
@@ -47,37 +46,42 @@ function draw() {
  isTouching(movingball,redSurface,blueSurface,pinkSurface,yellowSurface);
 
  bounceOff(movingball,redSurface,blueSurface,pinkSurface,yellowSurface,topBoundry,rightBoundry,leftBoundry);
- 
+
  drawSprites();
   
 }
 
 function isTouching(movingball,redSurface,blueSurface,pinkSurface,yellowSurface)
 {
-if(redSurface.isTouching(movingball) && movingball.bounceOff(redSurface) )
+if(redSurface.isTouching(movingball))
 {
   movingball.shapeColor = "red";
-  jumpingSound.play();
+  movingball.velocityX = 0;
+  movingball.velocityY = 0;
+
+  jumpingSound.stop();
 
 }
 
-if(pinkSurface.isTouching(movingball) && movingball.bounceOff(pinkSurface))
+if(pinkSurface.isTouching(movingball))
 {
   movingball.shapeColor = "pink";
+  
   jumpingSound.play();
  
 }
 
-if(blueSurface.isTouching(movingball) && movingball.bounceOff(blueSurface))
+if(blueSurface.isTouching(movingball))
 {
   movingball.shapeColor = "blue";
+ 
   jumpingSound.play();
-  
 }
 
-if(yellowSurface.isTouching(movingball) && movingball.bounceOff(yellowSurface))
+if(yellowSurface.isTouching(movingball))
 {
   movingball.shapeColor = "yellow";
+ 
   jumpingSound.play();
   
 }
