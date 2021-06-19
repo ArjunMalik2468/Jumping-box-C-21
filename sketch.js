@@ -56,10 +56,8 @@ function isTouching(movingball,redSurface,blueSurface,pinkSurface,yellowSurface)
 if(redSurface.isTouching(movingball))
 {
   movingball.shapeColor = "red";
-  movingball.velocityX = 0;
-  movingball.velocityY = 0;
 
-  jumpingSound.stop();
+  jumpingSound.play();
 
 }
 
@@ -74,8 +72,10 @@ if(pinkSurface.isTouching(movingball))
 if(blueSurface.isTouching(movingball))
 {
   movingball.shapeColor = "blue";
+  movingball.velocityX = 0;
+  movingball.velocityY = 0;
  
-  jumpingSound.play();
+  jumpingSound.stop();
 }
 
 if(yellowSurface.isTouching(movingball))
@@ -106,4 +106,5 @@ movingball.bounceOff(rightBoundry);
 
 movingball.bounceOff(leftBoundry);
 
+}
 }
